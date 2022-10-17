@@ -1,9 +1,10 @@
 import React from 'react';
+import Marvel from './Marvel';
 
 const App = () => {
     return(
         <div>
-            <h1>Marvel</h1>
+            <Marvel />
         </div>
     );
 }
