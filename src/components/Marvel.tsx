@@ -11,17 +11,20 @@ export const Marvel = () => {
         const response = await axios( urlAPI );
         setData( response.data.data.results );
 
-    }, [])
+    }, []);
 
     return (
         <div className="container">
             <div className="row" id="marvel-row">
-                <div className="col-md-4">
+                <div className="col">
                     {data.map( card => (
                         <Card
                             path={card.thumbnail.path}
                             extension={card.thumbnail.extension}
                             name={card.name}
+                            description={card.description}
+                            modified={card.modified}
+                            id={card.id}
                         />
                     ) )}
                 </div>
