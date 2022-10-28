@@ -2,7 +2,7 @@ import React from 'react';
 import Character from './Character';
 import '../styles/Card.scss';
 
-const Card = ({ path, extension, name, description, modified, id }) => {
+const Card = ({ path, extension, name, description, modified, id, handle }) => {
     const imgSource = `${path}.${extension}`;
 
     return(
@@ -13,6 +13,7 @@ const Card = ({ path, extension, name, description, modified, id }) => {
                 description={description}
                 modified={modified}
                 id={id}
+                handle={handle}
             />
         </div>
     );

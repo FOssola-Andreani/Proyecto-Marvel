@@ -1,11 +1,12 @@
 import React from 'react';
 import Marvel from './Marvel';
+import { StateContextProvider } from '../context/AppCharacterContext';
 
 const App = () => {
     return(
-        <div>
+        <StateContextProvider>
             <Marvel />
-        </div>
+        </StateContextProvider>
     );
 }
 
