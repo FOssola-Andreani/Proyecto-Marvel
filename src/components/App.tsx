@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
-import Marvel from './Marvel';
-import { StateContextProvider } from '../context/AppCharacterContext';
+// import Marvel from './Marvel';
+// import { StateContextProvider } from '../context/AppCharacterContext';
+import Layout from '../containers/Layout';
+import Login from '../containers/Login';
 
 const App = () => {
     useEffect( () => {
@@ -17,9 +19,12 @@ const App = () => {
     }
 
     return(
-        <StateContextProvider>
-            <Marvel />
-        </StateContextProvider>
+        <Layout>
+            <Login />
+        </Layout>
+        // <StateContextProvider>
+        //     <Marvel />
+        // </StateContextProvider>
     );
 }
 
