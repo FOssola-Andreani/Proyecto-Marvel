@@ -6,7 +6,8 @@ module.exports = {
     entry: './src/routes/index.tsx',
     output: {
         path: path.resolve( __dirname, 'public' ),
-        filename: 'bundle.js'
+        filename: 'bundle.js',
+        publicPath: '/'
     },
     mode: 'development',
     resolve: {
@@ -47,5 +48,8 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: '[name].css'
         }),
-    ]
+    ],
+    devServer: {
+        historyApiFallback: true,
+    }
 }
