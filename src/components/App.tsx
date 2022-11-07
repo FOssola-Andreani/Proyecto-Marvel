@@ -1,30 +1,32 @@
-import React, { useEffect } from 'react';
-// import Marvel from './Marvel';
-// import { StateContextProvider } from '../context/AppCharacterContext';
+import React from 'react';
+import Marvel from './Marvel';
+import { StateContextProvider } from '../context/AppCharacterContext';
 import Layout from '../containers/Layout';
 import Login from '../containers/Login';
 
 const App = () => {
-    useEffect( () => {
-        document.addEventListener( "keydown", keyDetected, true );
+    // useEffect( () => {
+    //     document.addEventListener( "keydown", keyDetected, true );
 
-    }, []);
+    // }, []);
 
-    const keyDetected = ( e ) => {
-        if( (e.which || e.keyCode) == 116){
-            e.preventDefault();
-        }
-        //console.log( "Tecla presionada: ", e.key );
+    // const keyDetected = ( e ) => {
+    //     if( (e.which || e.keyCode) == 116){
+    //         e.preventDefault();
+    //     }
 
-    }
+    // }
 
     return(
-        <Layout>
-            <Login />
-        </Layout>
-        // <StateContextProvider>
-        //     <Marvel />
-        // </StateContextProvider>
+        <React.StrictMode>
+            <Layout>
+                <Login>
+                    <StateContextProvider>
+                        <Marvel />
+                    </StateContextProvider>
+                </Login>
+            </Layout>
+        </React.StrictMode>
     );
 }
 

@@ -7,11 +7,15 @@ export const Marvel = () => {
     const context = useContext( StateProvider );
 
     useEffect( () => {
-        const urlAPI = "https://gateway.marvel.com:443/v1/public/characters?ts=1&apikey=74a8fa6b33f00b295f936c66e788375e&limit=16&hash=49e708f3075d5ea69e343462a106223c";
+        const loadData = async () => {
+            const urlAPI = "https://gateway.marvel.com:443/v1/public/characters?ts=1&apikey=74a8fa6b33f00b295f936c66e788375e&limit=16&hash=49e708f3075d5ea69e343462a106223c";
 
-        axios(urlAPI).then((res) => {
-            context.setState( [...res.data.data.results] );
-        });
+            await axios.get(urlAPI).then((res) => {
+                context.setState( [...res.data.data.results] );
+            });
+        }
+
+        loadData();
 
     }, []);
 

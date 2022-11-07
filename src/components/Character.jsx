@@ -19,7 +19,6 @@ const Character = ({ image, name, description, modified, id, handle }) => {
                     <h5 className="card-title">{name}</h5>
                     <p className="card-text"><b>Descripci&oacute;n: </b>{description}</p>
                     <p className="card-text"><b>Modificado: </b>{modified}</p>
-                    {/* <p className="card-text"><b>Id: </b>{id}</p> */}
                     <button onClick={() => handleClick( id )}>Eliminar de la lista</button>
                 </div>
             </div>
