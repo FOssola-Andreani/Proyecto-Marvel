@@ -29,10 +29,7 @@ const Login = () => {
 
         if( user.trim() && pass.trim() ){
             if( user === userAPI && pass === passAPI ){
-            //if( user === "fossola@andreani.com" && pass === "123456" ){
                 context.loginOk();
-
-                //document.getElementById( "login" ).style.display = "none";
 
             } else {
                 context.logOut();
