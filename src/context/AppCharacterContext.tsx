@@ -7,12 +7,12 @@ export const StateContextProvider = ( {children} ) => {
     const [state, setState] = useState( 
         [{
             "id": 1011334,
-            "name": "3-D Man",
+            "name": "",
             "description": "",
-            "modified": "2014-04-29T14:18:17-0400",
+            "modified": "",
             "thumbnail": {
-              "path": "http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784",
-              "extension": "jpg"
+              "path": "https://media.tenor.com/wfEN4Vd_GYsAAAAC/loading",
+              "extension": "gif"
             }
         }]
     );
@@ -26,6 +26,12 @@ export const StateContextProvider = ( {children} ) => {
         const character = currentArray.findIndex( ( x ) => x.id === id );
         currentArray.splice( character, 1 );
         setState( [...currentArray] );
+
+        const newItem = id.toString();
+        const delArray = (localStorage.getItem( "removeCharacter" )? localStorage.getItem( "removeCharacter" ): "");
+
+        localStorage.setItem( "removeCharacter", ( delArray?.trim()? delArray + ", " + newItem: delArray + newItem ) );
+
     }
 
     const loginOk = () => {
@@ -40,7 +46,9 @@ export const StateContextProvider = ( {children} ) => {
     }
 
     return(
-        <StateProvider.Provider value={{state, setState, addCharacter, removeCharacter, isLogin, loginOk, logOut}}>{children}</StateProvider.Provider>
+        <StateProvider.Provider value={{state, setState, addCharacter, removeCharacter, isLogin, loginOk, logOut}}>
+            {children}
+        </StateProvider.Provider>
     );
 };
 

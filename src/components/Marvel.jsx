@@ -11,14 +11,29 @@ export const Marvel = () => {
             const urlAPI = "https://gateway.marvel.com:443/v1/public/characters?ts=1&apikey=74a8fa6b33f00b295f936c66e788375e&limit=16&hash=49e708f3075d5ea69e343462a106223c";
 
             await axios.get(urlAPI).then((res) => {
-                //context.setState( [...res.data.data.results] );
-                context.addCharacter( [...res.data.data.results] );
+                const delArray = ( localStorage.getItem( "removeCharacter" )? localStorage.getItem( "removeCharacter" ): "" ).split( "," );
+                context.addCharacter( finalArray( [...res.data.data.results], delArray ) );
+
             });
-        }
+
+        };
 
         loadData();
 
     }, []);
+
+    const finalArray = ( charactersArray, deleteArray ) => {
+        let ret = charactersArray;
+        deleteArray.forEach( (item) => {
+            for( let index in ret ){
+                if( ret[index].id == parseInt( item ) ){
+                    ret.splice( index, 1 );
+                }
+            }
+        });
+
+        return ret;
+    }
 
     const removeCharacter = ( id ) => {
         context.setState( [...state.filter( items => items.id !== id )] );
