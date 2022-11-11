@@ -46,7 +46,7 @@ export const StateContextProvider = ( {children} ) => {
     }
 
     return(
-        <StateProvider.Provider value={{state, setState, addCharacter, removeCharacter, isLogin, loginOk, logOut}}>
+        <StateProvider.Provider value={{state, setState, addCharacter, removeCharacter, isLogin, loginOk, logOut, setIsLogin}}>
             {children}
         </StateProvider.Provider>
     );

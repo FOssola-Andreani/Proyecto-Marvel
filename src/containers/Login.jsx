@@ -26,10 +26,12 @@ const Login = () => {
 
     const fn_login = ( e ) => {
         e.preventDefault();
+        localStorage.setItem( "userLogin", "" );
 
         if( user.trim() && pass.trim() ){
             if( user === userAPI && pass === passAPI ){
                 context.loginOk();
+                localStorage.setItem( "userLogin", user );
 
             } else {
                 context.logOut();
@@ -42,7 +44,7 @@ const Login = () => {
                 document.getElementById( "password" ).value = "";
                 document.getElementById( "email" ).focus();
             }
-            setIsLogin( localStorage.getItem( "isLogin" ) );
+            context.setIsLogin( localStorage.getItem( "isLogin" ) );
 
         } else {
             alert( "complete los datos requeridos!" );
